@@ -1,11 +1,9 @@
 <script>
   import {todos} from './store'
-  export let handleClick;
-  export let isOpen;
 
   let todoText = ""
-
   let lastId = $todos.length > 0 ? $todos[$todos.length-1]['id'] : 1;
+  let isOpen = false;
 
   const createTodo = (e) => {
     if(e.key === 'Enter' && todoText !== '') {
@@ -17,6 +15,10 @@
       todos.update(todos => [...todos, newTodo])
       todoText = ""
     }
+  }
+
+  const handleClick = () => {
+    isOpen = !isOpen;
   }
 
 </script>

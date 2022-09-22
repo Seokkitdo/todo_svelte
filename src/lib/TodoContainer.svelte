@@ -2,14 +2,11 @@
   import TodoBody from "./TodoBody.svelte";
   import TodoHeader from "./TodoHeader.svelte";
 
-  export let handleClick;
-  export let isOpen;
-
 </script>
 
 <div class="container">
   <TodoHeader  />
-  <TodoBody    {handleClick}  {isOpen}/>
+  <TodoBody />
 </div>
 
 <style>

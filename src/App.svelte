@@ -1,16 +1,9 @@
 <script>
   import TodoContainer from './lib/TodoContainer.svelte';
-
-  let isOpen = false;
-  
-  
-  const handleClick = () => {
-    isOpen = !isOpen;
-  }
 </script>
 
 <main>
-  <TodoContainer {handleClick} {isOpen} />
+  <TodoContainer />
 </main>
 
 <style>

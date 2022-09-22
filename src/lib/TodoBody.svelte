@@ -3,9 +3,6 @@
   import CreateTodo from "./CreateTodo.svelte";
   import Todo from "./Todo.svelte";
 
-  export let handleClick;
-  export let isOpen;
-
 </script>
 
 <div class="todo_body">
@@ -15,7 +12,7 @@
     {/each}
   </ul>
 
-  <CreateTodo {handleClick}  {isOpen} />
+  <CreateTodo />
 </div>
 
 <style>
