@@ -1,15 +1,30 @@
 <script>
-  export let todoText;
+  import {todos} from './store'
   export let handleClick;
-  export let handleKeyUp;
   export let isOpen;
+
+  let todoText = ""
+
+  let lastId = $todos.length > 0 ? $todos[$todos.length-1]['id'] : 1;
+
+  const createTodo = (e) => {
+    if(e.key === 'Enter' && todoText !== '') {
+      let newTodo = {
+        id: lastId++,
+        text: todoText,
+        done: false,
+      }
+      todos.update(todos => [...todos, newTodo])
+      todoText = ""
+    }
+  }
 
 </script>
 
 {#if isOpen}
   <div class="add_todo">
     <div class="add_form">
-      <input on:keyup="{e => handleKeyUp(e)}" type="text" bind:value="{todoText}" name="todo" id="todo_content" placeholder="할 일을 입력 후, Enter 를 누르세요">
+      <input on:keyup="{e => createTodo(e)}" type="text" bind:value="{todoText}" name="todo" id="todo_content" placeholder="할 일을 입력 후, Enter 를 누르세요">
     </div>
   </div>
 

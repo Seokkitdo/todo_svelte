@@ -2,19 +2,14 @@
   import TodoBody from "./TodoBody.svelte";
   import TodoHeader from "./TodoHeader.svelte";
 
-  export let todos;
-  export let deleteTodo;
-  export let todoText;
   export let handleClick;
-  export let handleKeyUp;
   export let isOpen;
-  export let checkTodo;
 
 </script>
 
 <div class="container">
-  <TodoHeader {todos} />
-  <TodoBody {todos} bind:todoText {deleteTodo} {handleClick} {checkTodo} {handleKeyUp} {isOpen}/>
+  <TodoHeader  />
+  <TodoBody    {handleClick}  {isOpen}/>
 </div>
 
 <style>

@@ -1,8 +1,7 @@
 <script>
+  import {todos} from './store'
 
-  export let todos;
-
-  $: remainingCount = todos.filter((todo) => !todo.done).length;
+  $: remainingCount = $todos.filter((todo) => !todo.done).length;
   let date = new Date()
 
   const dayObj = {

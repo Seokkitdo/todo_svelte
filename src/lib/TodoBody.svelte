@@ -1,25 +1,21 @@
 <script>
+  import {todos} from './store'
   import CreateTodo from "./CreateTodo.svelte";
   import Todo from "./Todo.svelte";
 
-  export let todos;
-  export let deleteTodo;
-  export let todoText;
   export let handleClick;
-  export let handleKeyUp;
   export let isOpen;
-  export let checkTodo;
 
 </script>
 
 <div class="todo_body">
   <ul>
-    {#each todos as todo, index(todo.id)}
-      <Todo todo={todo} {deleteTodo} {checkTodo} />
+    {#each $todos as todo}
+      <Todo todo={todo}  />
     {/each}
   </ul>
 
-  <CreateTodo bind:todoText {handleClick} {handleKeyUp} {isOpen} />
+  <CreateTodo {handleClick}  {isOpen} />
 </div>
 
 <style>

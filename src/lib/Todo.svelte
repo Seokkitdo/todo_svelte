@@ -1,7 +1,6 @@
 <script>
-  export let deleteTodo;
+  import {todos} from './store'
   export let todo;
-  export let checkTodo;
 
   let active = false;
   $: checked = todo.done;
@@ -12,6 +11,30 @@
   const hoverOut = () => {
     active = false;
   }
+
+  const deleteTodo = (id) => {
+    todos.update(todos => todos.filter((todo) => {
+      if(todo.id === id) {
+      }
+      return todo.id !== id
+    }));
+  }
+
+  const checkTodo = (id) => {
+    todos.update(todos => todos.map((todo) => {
+      if(todo.id === id) {
+        let newTodo = {
+          ...todo,
+          done: !todo.done
+        }
+        return newTodo;
+      } else {
+        return todo;
+      }
+    }))
+  }
+
+
 </script>
 
 
